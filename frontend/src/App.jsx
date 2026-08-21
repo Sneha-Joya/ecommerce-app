@@ -42,8 +42,8 @@ const handleAuthSubmit = async (e) => {
   e.preventDefault();
 
   const url = isLogin
-    ? "http://localhost:5000/api/login"
-    : "http://localhost:5000/api/register";
+    ? "https://ecommerce-app-a7dx.onrender.com/api/login"
+    : "https://ecommerce-app-a7dx.onrender.com/api/register";
 
   try {
     const response = await fetch(url, {
@@ -89,7 +89,7 @@ const fetchOrders = async () => {
   try {
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:5000/api/orders", {
+    const response = await fetch("https://ecommerce-app-a7dx.onrender.com/api/orders", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -122,7 +122,7 @@ const [orderMessage, setOrderMessage] = useState("");
 
   // Fetch products
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch("https://ecommerce-app-a7dx.onrender.com/api/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -161,7 +161,7 @@ const deleteProduct = async (id) => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/products/${id}`,
+      `https://ecommerce-app-a7dx.onrender.com/api/products/${id}`,
       {
         method: "DELETE",
         headers: {
@@ -197,7 +197,7 @@ const addProduct = async () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/products",
+      "https://ecommerce-app-a7dx.onrender.com/api/products",
       {
         method: "POST",
         headers: {
@@ -294,7 +294,7 @@ const placeOrder = async () => {
     };
 
     const response = await fetch(
-      "http://localhost:5000/api/orders",
+      "https://ecommerce-app-a7dx.onrender.com/api/orders",
       {
         method: "POST",
         headers: {
@@ -537,7 +537,7 @@ const placeOrder = async () => {
 
         try {
           const response = await fetch(
-            `http://localhost:5000/api/orders/${order._id}/status`,
+            `https://ecommerce-app-a7dx.onrender.com/api/orders/${order._id}/status`,
             {
               method: "PUT",
               headers: {
